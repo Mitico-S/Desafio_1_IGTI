@@ -8,19 +8,18 @@ function start() {
 }
 
 function handleButtonClick() {
-  const item = getNewTimestamp();
-  clickArray.push(item);
+  clickArray.push(getNewTimestamp());
   render();
 }
 
-function render(item) {
+function render() {
   const ul = document.querySelector('#data');
+  ul.innerHTML = '';
+  let lis = '';
 
-  const li = document.createElement('li');
-  li.textContent = item;
+  clickArray.map((item) => {
+    lis += `<li>${item}</li>`;
 
-  ul.appendChild(li);
-
-    document.title = clickArray.length;
+    ul.innerHTML = lis;
   });
 }

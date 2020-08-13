@@ -8,8 +8,7 @@ function start() {
 }
 
 function handleButtonClick() {
-  const now = new Date();
-  clickArray.push(now.toISOString());
+  clickArray.push(getNewTimestamp());
   render();
 }
 
@@ -22,5 +21,7 @@ function render() {
     lis += `<li>${item}</li>`;
 
     ul.innerHTML = lis;
+
+    document.title = clickArray.length;
   });
 }
